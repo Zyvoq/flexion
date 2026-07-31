@@ -1,0 +1,2 @@
+Title: Barbell Trajectory and Center of Mass in Hinge Movements
+Abstract: Deviations in barbell trajectory away from the mid-foot increase horizontal distance to the hip joint, creating unnecessary moment arms that strain the lower back. Optimal hinge mechanics dictate a vertical barbell path aligned directly over the mid-foot center of pressure.

@@ -1,0 +1,2 @@
+Title: Biomechanical Drivers of Dynamic Knee Valgus in the Deep Squat
+Abstract: Dynamic knee valgus during squatting is characterized by simultaneous hip adduction and internal rotation, placing excess frontal-plane stress on the knee joint. Electromyographic analysis reveals that insufficient co-contraction of the gluteus medius and gluteus maximus impairs femur abduction control under heavy loads. This alignment error increases peak patellofemoral joint reaction forces and anterior cruciate ligament (ACL) strain during the bottom transition phase of the squat.

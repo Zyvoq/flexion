@@ -1,0 +1,58 @@
+{
+  "exercise": "squat",
+  "description": "Barbell or bodyweight squat — bilateral, sagittal-plane movement.",
+  "joints": {
+    "knee": {
+      "landmarks": ["hip", "knee", "ankle"],
+      "phases": {
+        "top": { "min": 160, "max": 180, "label": "Standing" },
+        "bottom": { "min": 70, "max": 100, "label": "Parallel / below" }
+      },
+      "unit": "degrees"
+    },
+    "hip": {
+      "landmarks": ["shoulder", "hip", "knee"],
+      "phases": {
+        "top": { "min": 160, "max": 180, "label": "Upright" },
+        "bottom": { "min": 60, "max": 100, "label": "Hinged" }
+      },
+      "unit": "degrees"
+    },
+    "back": {
+      "landmarks": ["hip", "shoulder", "ear"],
+      "phases": {
+        "top": { "min": 160, "max": 180, "label": "Upright torso" },
+        "bottom": { "min": 120, "max": 170, "label": "Slight forward lean" }
+      },
+      "unit": "degrees"
+    }
+  },
+  "phaseTransitions": {
+    "primaryJoint": "knee",
+    "standingThreshold": 155,
+    "bottomThreshold": 110,
+    "hysteresis": 8
+  },
+  "deviations": {
+    "knee_valgus_collapse": {
+      "checkPhase": "bottom",
+      "description": "Knees caving inward at the bottom of the squat",
+      "kneeAngleDiffThreshold": 15
+    },
+    "excessive_forward_lean": {
+      "checkPhase": "bottom",
+      "description": "Torso leaning too far forward during squat",
+      "backAngleMin": 120
+    },
+    "insufficient_depth": {
+      "checkPhase": "bottom",
+      "description": "Not reaching parallel — knee angle too high at the lowest point",
+      "kneeAngleMax": 100
+    },
+    "knee_over_extension": {
+      "checkPhase": "top",
+      "description": "Hyperextending the knees at lockout",
+      "kneeAngleMax": 180
+    }
+  }
+}
