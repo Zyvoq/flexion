@@ -1,0 +1,53 @@
+{
+  "exercise": "pushup",
+  "description": "Bodyweight pushup — horizontal press, closed kinetic chain movement.",
+  "joints": {
+    "elbow": {
+      "landmarks": ["shoulder", "elbow", "wrist"],
+      "phases": {
+        "top": { "min": 160, "max": 180, "label": "Plank / extended" },
+        "bottom": { "min": 70, "max": 100, "label": "Chest down" }
+      },
+      "unit": "degrees"
+    },
+    "shoulder": {
+      "landmarks": ["hip", "shoulder", "elbow"],
+      "phases": {
+        "top": { "min": 70, "max": 90, "label": "Neutral alignment" },
+        "bottom": { "min": 30, "max": 60, "label": "Tucked elbows" }
+      },
+      "unit": "degrees"
+    },
+    "hip": {
+      "landmarks": ["shoulder", "hip", "ankle"],
+      "phases": {
+        "top": { "min": 160, "max": 180, "label": "Rigid plank" },
+        "bottom": { "min": 160, "max": 180, "label": "Rigid plank" }
+      },
+      "unit": "degrees"
+    }
+  },
+  "phaseTransitions": {
+    "primaryJoint": "elbow",
+    "standingThreshold": 155,
+    "bottomThreshold": 100,
+    "hysteresis": 8
+  },
+  "deviations": {
+    "shoulder_abduction": {
+      "checkPhase": "bottom",
+      "description": "Flaring elbows to 90 degrees increasing supraspinatus shoulder strain",
+      "shoulderAngleMax": 85
+    },
+    "core_alignment": {
+      "checkPhase": "bottom",
+      "description": "Anterior pelvic tilt / sagging hips breaking plank alignment",
+      "hipAngleMin": 155
+    },
+    "insufficient_depth": {
+      "checkPhase": "bottom",
+      "description": "Chest not reaching full depth near floor",
+      "elbowAngleMax": 100
+    }
+  }
+}

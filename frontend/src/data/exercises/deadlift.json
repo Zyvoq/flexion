@@ -1,0 +1,53 @@
+{
+  "exercise": "deadlift",
+  "description": "Barbell or dumbbell deadlift — posterior chain hip hinge movement.",
+  "joints": {
+    "hip": {
+      "landmarks": ["shoulder", "hip", "knee"],
+      "phases": {
+        "top": { "min": 160, "max": 180, "label": "Lockout" },
+        "bottom": { "min": 60, "max": 100, "label": "Hinged / setup" }
+      },
+      "unit": "degrees"
+    },
+    "knee": {
+      "landmarks": ["hip", "knee", "ankle"],
+      "phases": {
+        "top": { "min": 160, "max": 180, "label": "Extended" },
+        "bottom": { "min": 110, "max": 140, "label": "Slight bend" }
+      },
+      "unit": "degrees"
+    },
+    "back": {
+      "landmarks": ["hip", "shoulder", "ear"],
+      "phases": {
+        "top": { "min": 160, "max": 180, "label": "Neutral spine" },
+        "bottom": { "min": 120, "max": 160, "label": "Hinged spine" }
+      },
+      "unit": "degrees"
+    }
+  },
+  "phaseTransitions": {
+    "primaryJoint": "hip",
+    "standingThreshold": 155,
+    "bottomThreshold": 105,
+    "hysteresis": 8
+  },
+  "deviations": {
+    "lumbar_flexion": {
+      "checkPhase": "bottom",
+      "description": "Rounding lower back / lumbar shear flex during deadlift initiation",
+      "backAngleMin": 120
+    },
+    "bar_path_deviation": {
+      "checkPhase": "bottom",
+      "description": "Excessive torso incline shifting center of pressure away from mid-foot",
+      "backAngleMin": 130
+    },
+    "knee_over_extension": {
+      "checkPhase": "top",
+      "description": "Hyperextending knees at lockout",
+      "kneeAngleMax": 180
+    }
+  }
+}
