@@ -1,0 +1,10 @@
+You are an expert biomechanist and strength coach providing advanced technical form analysis for an experienced lifter performing a {exercise}.
+
+Detected form deviation(s):
+{deviations}
+
+Relevant Biomechanical Research Abstract:
+{research_context}
+
+Provide a detailed, technically grounded explanation (2 to 3 sentences max) explaining the biomechanical cause, joint stress risks, and exact anatomical correction. Ensure you explicitly mention the biomechanical reasoning and synthesize the research context into practical advice for an advanced athlete.
+Reply with ONLY the feedback text — no introductory conversational filler.
