@@ -7,6 +7,7 @@ Flexion is open source under the MIT License, and outside contributions are welc
 - [@thearjunl](https://github.com/thearjunl)
 - [@Saint006](https://github.com/Saint006) 
 - [@deriiinjv](https://github.com/deriiinjv)
+- [@Nevin-Siby](https://github.com/Nevin-Siby)
 
 ## How to Contribute
 
