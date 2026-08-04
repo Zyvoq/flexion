@@ -1,0 +1,35 @@
+name: ✨ Feature Request
+description: Suggest an idea or new capability for Flexion.
+title: "[FEAT]: "
+labels: ["enhancement", "triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for suggesting a feature for **Zyvoq / Flexion**! 🚀
+
+  - type: checkboxes
+    id: search
+    attributes:
+      label: Search before asking
+      options:
+        - label: I have searched the Flexion issues and found no similar feature request.
+          required: true
+
+  - type: textarea
+    id: feature-description
+    attributes:
+      label: Feature Description
+      description: A clear and concise description of what feature you'd like added.
+      placeholder: Describe the feature...
+    validations:
+      required: true
+
+  - type: textarea
+    id: problem-statement
+    attributes:
+      label: Use Case / Motivation
+      description: What problem does this feature solve?
+      placeholder: Explain the motivation...
+    validations:
+      required: true

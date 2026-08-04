@@ -1,0 +1,18 @@
+name: 💡 Idea / Discussion
+description: Share an architectural idea or open discussion.
+title: "[IDEA]: "
+labels: ["discussion", "triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Share ideas, concepts, or architectural discussions for **Zyvoq / Flexion**! 💡
+
+  - type: textarea
+    id: idea-details
+    attributes:
+      label: Idea Description
+      description: Explain your idea or discussion topic.
+      placeholder: Share details about your concept...
+    validations:
+      required: true

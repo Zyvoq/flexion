@@ -1,0 +1,18 @@
+name: 🤖 AI Model Improvement
+description: Propose updates or fine-tuning ideas for pose estimation or LLM prompt models.
+title: "[MODEL]: "
+labels: ["ai-model", "triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Propose keypoint model, ONNX Web, or LLM coaching prompt improvements for **Zyvoq / Flexion**! 🤖
+
+  - type: textarea
+    id: model-proposal
+    attributes:
+      label: Model / AI Proposal Details
+      description: Describe your proposed model fine-tuning, WASM runtime, or prompt optimization.
+      placeholder: E.g., Upgrade WASM MediaPipe model options or tune RAG embedding search...
+    validations:
+      required: true

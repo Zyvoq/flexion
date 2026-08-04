@@ -1,0 +1,27 @@
+name: 📚 Documentation
+description: Report missing, incorrect, or improvable documentation.
+title: "[DOCS]: "
+labels: ["documentation", "triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for helping improve the **Zyvoq / Flexion** documentation! 📚
+
+  - type: textarea
+    id: doc-issue
+    attributes:
+      label: Documentation Issue / Request
+      description: What section of documentation needs improvement or addition?
+      placeholder: E.g., Landmark reference doc missing elbow angle vector details...
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposed-change
+    attributes:
+      label: Proposed Content / Link
+      description: Provide details or draft text for the updated documentation.
+      placeholder: Link or proposed text...
+    validations:
+      required: false

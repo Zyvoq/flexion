@@ -1,0 +1,35 @@
+name: 🧩 New Exercise (Flexion)
+description: Propose adding a new exercise type with landmark angle definitions.
+title: "[EXERCISE]: "
+labels: ["new-exercise", "triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Propose a new exercise addition for **Zyvoq / Flexion**! 🧩
+
+  - type: input
+    id: exercise-name
+    attributes:
+      label: Exercise Name
+      placeholder: E.g., Overhead Press, Lunge, Barbell Row
+    validations:
+      required: true
+
+  - type: textarea
+    id: landmarks-involved
+    attributes:
+      label: Key Joint Angles & Landmarks Involved
+      description: Specify which MediaPipe landmarks and joint angles are measured.
+      placeholder: E.g., Shoulder angle (11-13-15), Hip extension angle, Spine alignment...
+    validations:
+      required: true
+
+  - type: textarea
+    id: common-deviations
+    attributes:
+      label: Common Form Breakdown Criteria
+      description: What form errors should Flexion flag for this exercise?
+      placeholder: Describe form errors (e.g. Lumbar hyperextension, flare elbow angle)...
+    validations:
+      required: true

@@ -1,0 +1,70 @@
+name: 🐛 Bug Report
+description: Create a report to help us fix a bug or issue in Flexion.
+title: "[BUG]: "
+labels: ["bug", "triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for submitting a bug report to **Zyvoq / Flexion**! 🚀
+        Please search existing issues before opening a new one.
+
+  - type: checkboxes
+    id: search
+    attributes:
+      label: Search before asking
+      options:
+        - label: I have searched the Flexion issues and found no similar bug report.
+          required: true
+
+  - type: checkboxes
+    id: mre
+    attributes:
+      label: Minimum Reproducible Example (MRE)
+      options:
+        - label: I have included clear steps, logs, or an MRE demonstrating the issue.
+          required: true
+
+  - type: textarea
+    id: bug-description
+    attributes:
+      label: Bug Description
+      description: A clear and concise description of what the bug is.
+      placeholder: Describe the bug or form detection breakdown...
+    validations:
+      required: true
+
+  - type: dropdown
+    id: exercise
+    attributes:
+      label: Exercise / Component Involved
+      options:
+        - Squat
+        - Deadlift
+        - Pushup
+        - Pose Model WASM Engine
+        - FastAPI Backend / LLM / RAG
+        - General UI / Auth / Dashboard
+    validations:
+      required: true
+
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment Details
+      description: Operating system, browser/python version, camera setup.
+      placeholder: |
+        - OS: [e.g. macOS 14.5, Windows 11, iOS 17]
+        - Browser / Python: [e.g. Chrome 124, Python 3.10]
+        - Flexion Version / Commit: [e.g. main branch]
+    validations:
+      required: true
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: Error Logs / Console Output
+      description: Paste any relevant terminal logs or browser console errors.
+      render: shell
+    validations:
+      required: false

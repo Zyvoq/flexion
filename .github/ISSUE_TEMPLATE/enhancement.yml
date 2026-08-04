@@ -1,0 +1,18 @@
+name: 🚀 Enhancement
+description: Propose an improvement to existing functionality, UI, or performance.
+title: "[ENHANCEMENT]: "
+labels: ["enhancement", "triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Propose a performance, UI, or code quality enhancement for **Zyvoq / Flexion**! 🚀
+
+  - type: textarea
+    id: enhancement-details
+    attributes:
+      label: Enhancement Details
+      description: Describe what existing functionality should be enhanced and how.
+      placeholder: E.g., Optimize WASM pose pipeline FPS or improve joint overlay line thickness...
+    validations:
+      required: true

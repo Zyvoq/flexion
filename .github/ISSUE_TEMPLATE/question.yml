@@ -1,0 +1,18 @@
+name: ❓ Question
+description: Ask a question about Flexion setup, usage, or mechanics.
+title: "[QUESTION]: "
+labels: ["question", "triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Ask a question about **Zyvoq / Flexion**! ❓
+
+  - type: textarea
+    id: question-details
+    attributes:
+      label: Question Details
+      description: Provide details about your question or setup inquiry.
+      placeholder: Ask your question here...
+    validations:
+      required: true
