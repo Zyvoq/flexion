@@ -30,11 +30,7 @@ jobs:
             });
 
             // 2. Post automated greeting comment
-            const body = `👋 Hello @${sender}, thank you for submitting a **Zyvoq / Flexion** 🚀 Issue. This is an automated response from **FlexionAssistant** to help triage your report quickly, and an engineer will also assist you soon 😊
-
-To help us address this efficiently, please ensure all relevant details, reproduction steps, or logs are provided.
-
-Thanks for helping improve Zyvoq & Flexion! 💪`;
+            const body = "👋 Hello @" + sender + ", thank you for submitting a **Zyvoq / Flexion** 🚀 Issue. This is an automated response from **FlexionAssistant** to help triage your report quickly, and an engineer will also assist you soon 😊\n\nTo help us address this efficiently, please ensure all relevant details, reproduction steps, or logs are provided.\n\nThanks for helping improve Zyvoq & Flexion! 💪";
 
             await github.rest.issues.createComment({
               owner: context.repo.owner,
@@ -58,21 +54,19 @@ Thanks for helping improve Zyvoq & Flexion! 💪`;
             const pr = context.payload.pull_request;
             const sender = context.payload.sender.login;
 
-            // Check author association or previous PR count
+            // Check author association
             const authorAssociation = pr.author_association;
             const isFirstTime = ['FIRST_TIME_CONTRIBUTOR', 'FIRST_TIMER', 'NONE'].includes(authorAssociation);
 
-            let body = `👋 Hello @${sender}! `;
+            let body = "👋 Hello @" + sender + "! ";
 
             if (isFirstTime) {
-              body += `Welcome to **Zyvoq**! Thanks for your first contribution. We appreciate your interest in improving our projects. 🎉\n\n`;
+              body += "Welcome to **Zyvoq**! Thanks for your first contribution. We appreciate your interest in improving our projects. 🎉\n\n";
             } else {
-              body += `Thank you for submitting a Pull Request to **Zyvoq / Flexion**! 🚀\n\n`;
+              body += "Thank you for submitting a Pull Request to **Zyvoq / Flexion**! 🚀\n\n";
             }
 
-            body += `This is an automated greeting from **FlexionAssistant**. A maintainer will review your pull request soon 😊
-
-Please make sure you have filled out all sections in the PR template checklist. Thank you! 💪`;
+            body += "This is an automated greeting from **FlexionAssistant**. A maintainer will review your pull request soon 😊\n\nPlease make sure you have filled out all sections in the PR template checklist. Thank you! 💪";
 
             await github.rest.issues.createComment({
               owner: context.repo.owner,
