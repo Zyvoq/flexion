@@ -1,0 +1,82 @@
+name: FlexionAssistant Issue & PR Triage
+
+on:
+  issues:
+    types: [opened]
+  pull_request_target:
+    types: [opened]
+
+jobs:
+  triage-issue:
+    name: Issue Triage & Greeting
+    if: github.event_name == 'issues'
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+    steps:
+      - name: FlexionAssistant Issue Handler
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const issue = context.payload.issue;
+            const sender = context.payload.sender.login;
+
+            // 1. Add default priority label
+            await github.rest.issues.addLabels({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: issue.number,
+              labels: ['priority: medium']
+            });
+
+            // 2. Post automated greeting comment
+            const body = `👋 Hello @${sender}, thank you for submitting a **Zyvoq / Flexion** 🚀 Issue. This is an automated response from **FlexionAssistant** to help triage your report quickly, and an engineer will also assist you soon 😊
+
+To help us address this efficiently, please ensure all relevant details, reproduction steps, or logs are provided.
+
+Thanks for helping improve Zyvoq & Flexion! 💪`;
+
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: issue.number,
+              body: body
+            });
+
+  triage-pr:
+    name: PR Triage & Welcome Greeting
+    if: github.event_name == 'pull_request_target'
+    runs-on: ubuntu-latest
+    permissions:
+      pull-requests: write
+      issues: write
+    steps:
+      - name: FlexionAssistant PR Welcome Handler
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const pr = context.payload.pull_request;
+            const sender = context.payload.sender.login;
+
+            // Check author association or previous PR count
+            const authorAssociation = pr.author_association;
+            const isFirstTime = ['FIRST_TIME_CONTRIBUTOR', 'FIRST_TIMER', 'NONE'].includes(authorAssociation);
+
+            let body = `👋 Hello @${sender}! `;
+
+            if (isFirstTime) {
+              body += `Welcome to **Zyvoq**! Thanks for your first contribution. We appreciate your interest in improving our projects. 🎉\n\n`;
+            } else {
+              body += `Thank you for submitting a Pull Request to **Zyvoq / Flexion**! 🚀\n\n`;
+            }
+
+            body += `This is an automated greeting from **FlexionAssistant**. A maintainer will review your pull request soon 😊
+
+Please make sure you have filled out all sections in the PR template checklist. Thank you! 💪`;
+
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: pr.number,
+              body: body
+            });
