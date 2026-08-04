@@ -2,7 +2,7 @@ name: Auto Labeler
 
 on:
   pull_request_target:
-    types: [opened, synchronize]
+    types: [opened, synchronize, reopened]
 
 jobs:
   labeler:
@@ -11,8 +11,9 @@ jobs:
     permissions:
       contents: read
       pull-requests: write
+      issues: write
     steps:
       - uses: actions/labeler@v5
         with:
           repo-token: "${{ secrets.GITHUB_TOKEN }}"
-          sync-repo-labels: true
+          sync-repo-labels: false

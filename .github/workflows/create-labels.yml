@@ -1,0 +1,52 @@
+name: Create Default Labels
+
+on:
+  workflow_dispatch:
+
+jobs:
+  create-labels:
+    name: Create Repository Labels
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+    steps:
+      - name: Create Labels
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const labels = [
+              { name: 'frontend', color: '0075ca', description: 'Changes to frontend code' },
+              { name: 'backend', color: 'e4e669', description: 'Changes to backend code' },
+              { name: 'documentation', color: '0052cc', description: 'Improvements or additions to documentation' },
+              { name: 'ci', color: 'f9d0c4', description: 'Changes to CI/CD workflows' },
+              { name: 'bug', color: 'd73a4a', description: 'Something is not working' },
+              { name: 'enhancement', color: 'a2eeef', description: 'New feature or request' },
+              { name: 'question', color: 'd876e3', description: 'Further information is requested' },
+              { name: 'research', color: 'bfd4f2', description: 'Biomechanics research and literature' },
+              { name: 'new-exercise', color: '0e8a16', description: 'Proposal for a new exercise type' },
+              { name: 'ai-model', color: '6f42c1', description: 'AI model improvement or fine-tuning' },
+              { name: 'discussion', color: 'e6e6e6', description: 'General discussion or idea' },
+              { name: 'triage', color: 'ededed', description: 'Needs triage by a maintainer' },
+              { name: 'priority: medium', color: 'fbca04', description: 'Normal priority; valuable but not urgent' },
+              { name: 'priority: high', color: 'e11d48', description: 'High priority issue' },
+              { name: 'priority: low', color: 'c2e0c6', description: 'Low priority issue' },
+            ];
+
+            for (const label of labels) {
+              try {
+                await github.rest.issues.createLabel({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  name: label.name,
+                  color: label.color,
+                  description: label.description,
+                });
+                console.log(`Created label: ${label.name}`);
+              } catch (e) {
+                if (e.status === 422) {
+                  console.log(`Label already exists: ${label.name}`);
+                } else {
+                  throw e;
+                }
+              }
+            }
