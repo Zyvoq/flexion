@@ -131,3 +131,5 @@ MIT — see [LICENSE](LICENSE) for details.
 
 Flexion is a form-checking aid, not a substitute for a certified trainer or medical advice. Always warm up properly and stop if you feel pain. If you're new to an exercise, consider learning the basics from a qualified coach before relying solely on automated feedback.
 >>>>>>> 3821bab (docs(repo): add open-source governance documentation, licenses, and GitHub templates)
+
+<!-- Test PR Template -->
